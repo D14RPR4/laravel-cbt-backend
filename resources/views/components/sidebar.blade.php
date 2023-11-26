@@ -14,6 +14,9 @@
             <li class="nav-item dropdown {{ request()->routeIs('users.index','users.create') ? 'active' : '' }}">
                 <a href="{{ route('users.index') }}" class="nav-link"><i class="fas fa-user"></i><span>Users</span></a>
             </li>
+            <li class="nav-item dropdown {{ request()->routeIs('soal.index','soal.create') ? 'active' : '' }}">
+                <a href="{{ route('soal.index') }}" class="nav-link"><i class="fas fa-user"></i><span>Bank Soal</span></a>
+            </li>
         </ul>
     </aside>
 </div>

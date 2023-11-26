@@ -25,104 +25,121 @@
                 <h1>Advanced Forms</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{route('home')}}">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="{{route('users.index')}}">All Users</a></div>
-                    <div class="breadcrumb-item">Create User</div>
+                    <div class="breadcrumb-item"><a href="{{route('soal.index')}}">Bank Soal</a></div>
+                    <div class="breadcrumb-item">Create Soal</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">User Create</h2>
+                <h2 class="section-title">Soal Create</h2>
 
                 <div class="row">
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="card">
-                            <form action="{{route('users.update',$users)}}" method="POST">
+                            <form action="{{route('soal.store')}}" method="POST">
                                 @csrf
-                                @method('PUT')
                             <div class="card-header">
                                 <h4>Input Text</h4>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Pertanyaan</label>
                                     <input type="text"
-                                    name="name"
-                                    value="{{$users->name}}"
-                                        class="form-control @error('name')
+                                    name="pertanyaan"
+                                        class="form-control @error('pertanyaan')
                                         is-invalid
                                         @enderror">
-                                        @error('name')
-                                        <div class="invalid-feedback">
-                                            {{$message}}
-                                        </div>
-                                        @enderror
-                                </div>
-                               <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="text"
-                                    name="email"
-                                    value="{{$users->email}}"
-                                        class="form-control @error('email')
-                                        is-invalid
-                                        @enderror">
-                                        @error('email')
+                                        @error('pertanyaan')
                                         <div class="invalid-feedback">
                                             {{$message}}
                                         </div>
                                         @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <i class="fas fa-lock"></i>
-                                            </div>
-                                        </div>
-                                        <input type="password"
-                                        name="password"
-                                            class="form-control @error('password')
-                                            is-invalid
-                                            @enderror">
-                                    </div>
-                                    @error('password')
-                                    <div class="invalid-feedback">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="tel"
-                                    name="phone"
-                                    value="{{$users->phone}}"
-                                        class="form-control @error('phone')
-                                        is-invalid
-                                        @enderror">
-                                        @error('phone')
-                                        <div class="invalid-feedback">
-                                            {{$message}}
-                                        </div>
-                                        @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="form-label">Roles</label>
+                                    <label class="form-label">Kategori</label>
                                     <div class="selectgroup w-100">
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="ADMIN" class="selectgroup-input" @if ($users->roles=='ADMIN')checked
-                                            @endif>
-                                            <span class="selectgroup-button">Admin</span>
+                                            <input type="radio" name="kategori" value="Logika" class="selectgroup-input" checked="">
+                                            <span class="selectgroup-button">Logika</span>
                                         </label>
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="STAFF" class="selectgroup-input" @if ($users->roles=='STAFF')checked
-                                            @endif>
-                                            <span class="selectgroup-button">Staff</span>
+                                            <input type="radio" name="kategori" value="Verbal" class="selectgroup-input" checked="">
+                                            <span class="selectgroup-button">Verbal</span>
                                         </label>
                                         <label class="selectgroup-item">
-                                            <input type="radio" name="roles" value="USER" class="selectgroup-input" @if ($users->roles=='USER')checked
-                                            @endif>
-                                            <span class="selectgroup-button">User</span>
+                                            <input type="radio" name="kategori" value="Numeric" class="selectgroup-input" checked="">
+                                            <span class="selectgroup-button">Numeric</span>
+                                        </label>
+                                    </div>
+                                </div>
+                               <div class="form-group">
+                                    <label>Jawaban A</label>
+                                    <input type="text"
+                                    name="jawaban_a"
+                                        class="form-control @error('jawaban_a')
+                                        is-invalid
+                                        @enderror">
+                                        @error('jawaban_a')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                        @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Jawaban B</label>
+                                    <input type="text"
+                                    name="jawaban_b"
+                                        class="form-control @error('jawaban_b')
+                                        is-invalid
+                                        @enderror">
+                                        @error('jawaban_b')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                        @enderror
+                                </div><div class="form-group">
+                                    <label>Jawaban C</label>
+                                    <input type="text"
+                                    name="jawaban_c"
+                                        class="form-control @error('jawaban_c')
+                                        is-invalid
+                                        @enderror">
+                                        @error('jawaban_c')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                        @enderror
+                                </div><div class="form-group">
+                                    <label>Jawaban D</label>
+                                    <input type="text"
+                                    name="jawaban_d"
+                                        class="form-control @error('jawaban_d')
+                                        is-invalid
+                                        @enderror">
+                                        @error('jawaban_d')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                        @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Kunci</label>
+                                    <div class="selectgroup w-100">
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="kunci" value="a" class="selectgroup-input" checked="">
+                                            <span class="selectgroup-button">A</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="kunci" value="b" class="selectgroup-input" checked="">
+                                            <span class="selectgroup-button">B</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="kunci" value="c" class="selectgroup-input" checked="">
+                                            <span class="selectgroup-button">C</span>
+                                        </label>
+                                        <label class="selectgroup-item">
+                                            <input type="radio" name="kunci" value="d" class="selectgroup-input" checked="">
+                                            <span class="selectgroup-button">D</span>
                                         </label>
                                     </div>
                                 </div>
